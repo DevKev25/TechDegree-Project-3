@@ -231,18 +231,41 @@ cardNumber.addEventListener('blur', ccnError);
 zipCode.addEventListener('blur', zipError);
 cvv.addEventListener('blur', cvvError);
 
+let nameCheck = document.getElementById('name-check')
+let emailCheck = document.getElementById('email-check')
+let cardCheck = document.getElementById('card-check')
+let zipCheck = document.getElementById('zip-check')
+let cvvCheck = document.getElementById('cvv-check')
+nameCheck.style.display = 'none'
+emailCheck.style.display = 'none'
+cardCheck.style.display = 'none'
+zipCheck.style.display = 'none'
+cvvCheck.style.display = 'none'
+
+
+
+
+
 
 function nameError() {
+    
     let nameRegex = (/^[a-zA-Z]{2,30}/);
     let nameResult = false;
     if (nameRegex.test(nameInput.value)) {
      nameResult = true;
     } if (nameResult == true) {
      nameInput.style.borderColor = "green";
+     nameInput.style.borderWidth = '1.5px';
      totalCorrect += 1
+     nameCheck.style.display = 'unset'
+     
     } else if (nameResult == false) {
+     nameCheck.style.display = 'none'
      nameInput.style.borderColor = "red";
+     nameInput.style.borderWidth = '2px';
+    
     }
+    
 }
 
 function emailError() {
@@ -252,9 +275,13 @@ function emailError() {
         emailResult = true;
     } if (emailResult == true) {
             emailAddress.style.borderColor = "green";
+            emailCheck.style.display = 'unset'
+            emailAddress.style.borderWidth = '1.5px';
             totalCorrect += 1
     } else if (emailResult == false) {
         emailAddress.style.borderColor = "red";
+        emailCheck.style.display = 'none'
+        emailAddress.style.borderWidth = '2px';
     }
 }
 
@@ -265,9 +292,14 @@ function ccnError() {
         ccnResult = true
     } if (ccnResult == true) {
         cardNumber.style.borderColor = 'green';
+        cardCheck.style.display = 'unset'
+        cardNumber.style.borderWidth = '1.5px';
+        
         totalCorrect += 1
     } else if (ccnResult == false) {
         cardNumber.style.borderColor = "red";
+        cardCheck.style.display = 'none'
+        cardNumber.style.borderWidth = '2px';
     }
 }
 
@@ -278,9 +310,13 @@ function zipError() {
         zipResult = true;
     } if (zipResult == true) {
         zipCode.style.borderColor = 'green'
+        zipCheck.style.display = 'unset'
+        zipCode.style.borderWidth = '1.5px';
         totalCorrect += 1
     } else if (zipResult == false) {
         zipCode.style.borderColor = 'red'
+        zipCheck.style.display = 'none'
+        zipCode.style.borderWidth = '2px';
     }
 }
 
@@ -292,9 +328,13 @@ function cvvError() {
         cvvResult = true;
     } if (cvvResult == true) {
         cvv.style.borderColor = "green"
+        cvvCheck.style.display = 'unset'
+        cvv.style.borderWidth = '1.5px';
         totalCorrect += 1
     } else if (cvvResult == false) {
         cvv.style.borderColor = 'red'
+        cvvCheck.style.display = 'none'
+        cvv.style.borderWidth = '2.5px';
     }
 }
 
