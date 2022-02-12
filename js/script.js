@@ -242,11 +242,6 @@ cardCheck.style.display = 'none'
 zipCheck.style.display = 'none'
 cvvCheck.style.display = 'none'
 
-
-
-
-
-
 function nameError() {
     
     let nameRegex = (/^[a-zA-Z]{2,30}/);
