@@ -1,6 +1,7 @@
 let nameInput= document.getElementById('name');
 nameInput.focus(); 
 
+
 /* "Job Role" Section
 in this section, an text bar appears when the user selects 'other' as a job role
 */
@@ -80,6 +81,8 @@ function chooseColors() {
  let changeWarning = document.createElement('h2');
  let totalCostLabel = document.createElement('h2');
  let total = document.createElement('h2');
+
+ 
 
 for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener('change', (e) => {
@@ -242,6 +245,13 @@ cardCheck.style.display = 'none'
 zipCheck.style.display = 'none'
 cvvCheck.style.display = 'none'
 
+let invalidName = document.getElementById('name-hint');
+let invalidEmail = document.getElementById('email-hint')
+let invalidCard = document.getElementById('cc-hint')
+let invalidZip = document.getElementById('zip-hint')
+let invalidCvv = document.getElementById('cvv-hint')
+
+
 function nameError() {
     
     let nameRegex = (/^[a-zA-Z]{2,30}/);
@@ -250,12 +260,14 @@ function nameError() {
      nameResult = true;
     } if (nameResult == true) {
      nameInput.style.borderColor = "green";
+     invalidName.style.display = 'none'
      nameInput.style.borderWidth = '1.5px';
      totalCorrect += 1
      nameCheck.style.display = 'unset'
      
     } else if (nameResult == false) {
      nameCheck.style.display = 'none'
+     invalidName.style.display = 'unset'
      nameInput.style.borderColor = "red";
      nameInput.style.borderWidth = '2px';
     
@@ -271,10 +283,12 @@ function emailError() {
     } if (emailResult == true) {
             emailAddress.style.borderColor = "green";
             emailCheck.style.display = 'unset'
+            invalidEmail.style.display = 'none'
             emailAddress.style.borderWidth = '1.5px';
             totalCorrect += 1
     } else if (emailResult == false) {
         emailAddress.style.borderColor = "red";
+        invalidEmail.style.display = 'unset'
         emailCheck.style.display = 'none'
         emailAddress.style.borderWidth = '2px';
     }
@@ -287,12 +301,14 @@ function ccnError() {
         ccnResult = true
     } if (ccnResult == true) {
         cardNumber.style.borderColor = 'green';
+        invalidCard.style.display = 'none'
         cardCheck.style.display = 'unset'
         cardNumber.style.borderWidth = '1.5px';
         
         totalCorrect += 1
     } else if (ccnResult == false) {
         cardNumber.style.borderColor = "red";
+        invalidCard.style.display = 'unset'
         cardCheck.style.display = 'none'
         cardNumber.style.borderWidth = '2px';
     }
@@ -305,11 +321,13 @@ function zipError() {
         zipResult = true;
     } if (zipResult == true) {
         zipCode.style.borderColor = 'green'
+        invalidZip.style.display = 'none'
         zipCheck.style.display = 'unset'
         zipCode.style.borderWidth = '1.5px';
         totalCorrect += 1
     } else if (zipResult == false) {
         zipCode.style.borderColor = 'red'
+        invalidZip.style.display = 'unset'
         zipCheck.style.display = 'none'
         zipCode.style.borderWidth = '2px';
     }
@@ -323,11 +341,13 @@ function cvvError() {
         cvvResult = true;
     } if (cvvResult == true) {
         cvv.style.borderColor = "green"
+        invalidCvv.style.display = 'none'
         cvvCheck.style.display = 'unset'
         cvv.style.borderWidth = '1.5px';
         totalCorrect += 1
     } else if (cvvResult == false) {
         cvv.style.borderColor = 'red'
+        invalidCvv.style.display = 'unset'
         cvvCheck.style.display = 'none'
         cvv.style.borderWidth = '2.5px';
     }
