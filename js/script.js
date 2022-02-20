@@ -190,25 +190,6 @@ form.addEventListener('submit', (e) => {
 })
 
 registerBtn.addEventListener('click', (e) => {
-    if (credidCardDiv.hidden == false) {
-        let numCheck = cardNumber.value;
-        let zipCheck = zipCode.value;
-        let cvvCheck = cvv.value;
-
-        if (numCheck.length  < 13 || numCheck.length  > 16) {
-            alert(" Please enter a card number that is between 13 and 16 digits long.");
-        }
-        
-        if (zipCheck.length != 5) {
-            alert('Sorry your zip is invalid. Please enter a valid zip code');
-        }
-        
-        if (cvvCheck.length != 3) {
-            alert('Please enter a valid CVV Number');
-        }
-    }
-   
-    changeWarning.innerHTML = '';
 
     if (totalCorrect === mustBeCorrect) {
         alert('Congratulations, we hope you enjoy your purchase!');
@@ -221,6 +202,11 @@ registerBtn.addEventListener('click', (e) => {
         alert('Please make sure all fields are correctly filled.');
         if (checkCounter <= 0) {
             registerActivities.appendChild(changeWarning);
+            emailError();
+            ccnError();
+            zipError();
+            cvvError();
+            
             changeWarning.innerHTML = 'You need to select at least 1 activity';
         }
     }
